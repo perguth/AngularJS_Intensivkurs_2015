@@ -4,7 +4,8 @@ module.exports = function () {
 
   this.get = function () {
     if (!list) {
-      list = angular.fromJson(localStorage.getItem('Tasks'));
+      list = angular.fromJson(localStorage.getItem('Tasks')) || [];
+
       if (!list) {
         list = [];
       }
@@ -15,6 +16,10 @@ module.exports = function () {
 
   this.set = function (task) {
     list.push(task);
+    this.save();
+  };
+
+  this.save = function () {
     localStorage.setItem('Tasks', angular.toJson(list));
   };
 };

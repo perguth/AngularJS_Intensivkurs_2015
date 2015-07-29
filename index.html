@@ -3,14 +3,17 @@
   <head>
     <title>The Code Campus Training App</title>
     <script src="scripts/bundle.js"></script>
+    <link rel="stylesheet" type="text/css" href=".tmp/styles/main.css">
   </head>
   <body ng-controller="TaskCtrl">
-    <h1>TODO-List App</h1>
-    <input type="text" ng-model="newTask.name" ng-keypress="(newTask.name && $event.which === 13)?addTask():0"/>
-    <button ng-click="addTask()" ng-disabled="!newTask.name">+</button>
+    <div class="list">
+      <h1>TODO-List App</h1>
+      <input type="text" ng-model="newTask.name" ng-keypress="(newTask.name && $event.which === 13)?addTask():0"/>
+      <button ng-click="addTask()" ng-disabled="!newTask.name">+</button>
 
-    <ul>
-      <li ng-repeat="task in taskList">{{task.name}}</li>
-    </ul>
+      <ul>
+        <li ng-repeat="task in taskList" ng-class="{'checked': task.completed}">{{task.name}} <div class="right"><input type="checkbox" ng-model="task.completed" ng-change="check()"></div></li>
+      </ul>
+    </div>
   </body>
 </html>

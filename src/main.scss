@@ -2,3 +2,19 @@
   box-sizing: border-box;
   user-select: none;
 }
+
+.checked {
+  text-decoration: line-through;
+  color: grey;
+}
+
+.right {
+  position: absolute;
+  right: 0;
+}
+
+.list {
+  width: 505px;
+  margin-left: 50px;
+  position: relative;
+}

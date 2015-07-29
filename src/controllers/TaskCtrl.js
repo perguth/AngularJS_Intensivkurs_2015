@@ -9,4 +9,8 @@ module.exports = function ($scope, TaskService) {
     TaskService.set($scope.newTask);
     $scope.newTask = new task();
   };
+
+  $scope.check = function () {
+    TaskService.save();
+  };
 }
