@@ -2,6 +2,7 @@
 <html ng-app="todo-app">
   <head>
     <title>The Code Campus Training App</title>
+    <!-- <script src="//code.jquery.com/jquery-2.1.4.min.js"></script> -->
     <script src="scripts/bundle.js"></script>
     <link rel="stylesheet" type="text/css" href=".tmp/styles/main.css">
   </head>
@@ -16,11 +17,11 @@
             <button ng-click="addTask()" ng-disabled="!newTask.name">+</button>
           </div>
         </li>
-        <li ng-repeat="task in taskList | filter:taskFilter" ng-class="{'checked': task.completed, 'odd': $odd}">
+        <li ng-repeat="task in taskList | filter:taskFilter" ng-class="{'checked': task.completed, 'odd': $odd, hide: task.small}">
           <input type="checkbox" ng-model="task.completed" ng-change="check()">
           <span class="description">{{task.name}}</span>
           <div class="right">
-            <button ng-click="delete($index)">-</button>
+            <button ng-click="task.small = true; delete(task.id)">-</button>
           </div>
         </li>
       </ul>

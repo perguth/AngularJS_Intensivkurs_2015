@@ -53,15 +53,25 @@
     position: relative;
     list-style: none;
     padding: 5px;
+    transition: height 0.5s, padding 0.5s, background-color 0.5s;
+    height: 30px;
 
     &.odd {
       background: lightblue;
+    }
+
+    &.hide {
+      height: 0;
+      padding-top: 0;
+      padding-bottom: 0;
+      overflow: hidden;
     }
 
     .input {
       margin-left: 5px;
       width: calc(100% - 60px);
       border: none;
+      font-size: 12px;
     }
   }
 

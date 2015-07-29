@@ -16,6 +16,7 @@ module.exports = function () {
 
   this.set = function (task) {
     list.push(task);
+
     this.save();
   };
 
@@ -23,8 +24,24 @@ module.exports = function () {
     localStorage.setItem('Tasks', angular.toJson(list));
   };
 
-  this.delete = function (index) {
+  this.delete = function (id) {
+    var index = 0;
+    for (index = 0; index < list.length; index++) {
+      if (list[index].id === id) {
+        break;
+      }
+    }
+
+    if (index === list.length) {
+      return;
+    }
+
     list.splice(index, 1);
+    this.save();
+  };
+
+  this.clear = function () {
+    list.splice(0, list.length);
     this.save();
   };
 };
