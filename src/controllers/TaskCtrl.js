@@ -1,11 +1,19 @@
-module.exports = function ($scope) {
+module.exports = function ($scope, TaskService) {
   var task = require('../classes/task.js');
 
   $scope.newTask = new task();
-  $scope.taskList = [];
+  $scope.taskList = TaskService.get();
+
 
   $scope.addTask = function () {
-    $scope.taskList.push($scope.newTask);
+    TaskService.set($scope.newTask);
     $scope.newTask = new task();
   };
+
+  function destroy() {
+    alert('destroy');
+    TaskService.destroy();
+  }
+  $scope.$on("$destroy", destroy);
+
 }
