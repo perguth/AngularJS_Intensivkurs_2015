@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <title>First angular app</title>
 
 <link rel=stylesheet href=http://yui.yahooapis.com/pure/0.6.0/pure-min.css>
@@ -28,3 +29,21 @@
     document.write("<script async src='http://HOST:3000/browser-sync/browser-sync-client.2.8.0.js'><\/script>".replace("HOST", location.hostname));
 //]]></script>
 
+=======
+<!doctype html>
+<html ng-app="todo-app">
+  <head>
+    <title>The Code Campus Training App</title>
+    <script src="scripts/bundle.js"></script>
+  </head>
+  <body ng-controller="TaskCtrl">
+    <h1>TODO-List App</h1>
+    <input type="text" ng-model="newTask.name" ng-keypress="(newTask.name && $event.which === 13)?addTask():0"/>
+    <button ng-click="addTask()" ng-disabled="!newTask.name">+</button>
+
+    <ul>
+      <li ng-repeat="task in taskList">{{task.name}}</li>
+    </ul>
+  </body>
+</html>
+>>>>>>> e8f87ce6dcf4641322029e0e2773db9b96c9220d
