@@ -22,4 +22,9 @@ module.exports = function () {
   this.save = function () {
     localStorage.setItem('Tasks', angular.toJson(list));
   };
+
+  this.delete = function (index) {
+    list.splice(index, 1);
+    this.save();
+  };
 };

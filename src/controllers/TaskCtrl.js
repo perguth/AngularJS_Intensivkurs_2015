@@ -13,4 +13,8 @@ module.exports = function ($scope, TaskService) {
   $scope.check = function () {
     TaskService.save();
   };
+
+  $scope.delete = function (index) {
+    TaskService.delete(index);
+  };
 }

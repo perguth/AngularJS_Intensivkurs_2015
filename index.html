@@ -12,7 +12,12 @@
       <button ng-click="addTask()" ng-disabled="!newTask.name">+</button>
 
       <ul>
-        <li ng-repeat="task in taskList" ng-class="{'checked': task.completed}">{{task.name}} <div class="right"><input type="checkbox" ng-model="task.completed" ng-change="check()"></div></li>
+        <li ng-repeat="task in taskList" ng-class="{'checked': task.completed}">{{task.name}}
+          <div class="right">
+            <input type="checkbox" ng-model="task.completed" ng-change="check()">
+            <button ng-click="delete($index)">-</button>
+          </div>
+        </li>
       </ul>
     </div>
   </body>
