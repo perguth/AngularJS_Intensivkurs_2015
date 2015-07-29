@@ -1,0 +1,16 @@
+<!doctype html>
+<html ng-app="todo-app">
+  <head>
+    <title>The Code Campus Training App</title>
+    <script src="scripts/bundle.js"></script>
+  </head>
+  <body ng-controller="TaskCtrl">
+    <h1>TODO-List App</h1>
+    <input type="text" ng-model="newTask.name" ng-keypress="(newTask.name && $event.which === 13)?addTask():0"/>
+    <button ng-click="addTask()" ng-disabled="!newTask.name">+</button>
+
+    <ul>
+      <li ng-repeat="task in taskList">{{task.name}}</li>
+    </ul>
+  </body>
+</html>
