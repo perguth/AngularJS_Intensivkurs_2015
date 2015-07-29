@@ -1,0 +1,30 @@
+<title>First angular app</title>
+
+<link rel=stylesheet href=//yui.yahooapis.com/pure/0.6.0/pure-min.css>
+<style>
+  #main {
+    width: 600px;
+    margin: 0 auto;
+  }
+</style>
+<!-- -------------------------------------------------- -->
+
+
+<div id=main  ng-app=todo-app>
+  <h1>Todo app</h1>
+
+  <input type=text ng-model=task placeholder=Yo!&nbsp;Angular>
+  <input type=checkbox ng-model=show>
+  <br>
+  <span>{{ task }}</span>
+  <b><span ng-bind=task ng-show=show></span></b>
+
+
+<!-- -------------------------------------------------- -->
+<script src=bundle.js></script>
+
+<!-- vendor ------------------------------------------- -->
+<script type='text/javascript' id="__bs_script__">//<![CDATA[
+    document.write("<script async src='http://HOST:3000/browser-sync/browser-sync-client.2.8.0.js'><\/script>".replace("HOST", location.hostname));
+//]]></script>
+
