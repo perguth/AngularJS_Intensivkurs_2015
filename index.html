@@ -8,13 +8,18 @@
   <body ng-controller="TaskCtrl">
     <div class="list">
       <h1>TODO-List App</h1>
-      <input type="text" ng-model="newTask.name" ng-keypress="(newTask.name && $event.which === 13)?addTask():0"/>
-      <button ng-click="addTask()" ng-disabled="!newTask.name">+</button>
-
       <ul>
-        <li ng-repeat="task in taskList" ng-class="{'checked': task.completed}">{{task.name}}
+        <li class="odd">
+          <input type="checkbox" ng-model="displayFilter">
+          <input class="input" placeholder="Add new task..." type="text" ng-model="newTask.name" ng-keypress="(newTask.name && $event.which === 13)?addTask():0"/>
           <div class="right">
-            <input type="checkbox" ng-model="task.completed" ng-change="check()">
+            <button ng-click="addTask()" ng-disabled="!newTask.name">+</button>
+          </div>
+        </li>
+        <li ng-repeat="task in taskList | filter:taskFilter" ng-class="{'checked': task.completed, 'odd': $odd}">
+          <input type="checkbox" ng-model="task.completed" ng-change="check()">
+          <span class="description">{{task.name}}</span>
+          <div class="right">
             <button ng-click="delete($index)">-</button>
           </div>
         </li>

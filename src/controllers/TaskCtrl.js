@@ -3,6 +3,7 @@ module.exports = function ($scope, TaskService) {
 
   $scope.newTask = new task();
   $scope.taskList = TaskService.get();
+  $scope.displayFilter = false;
 
 
   $scope.addTask = function () {
@@ -17,4 +18,8 @@ module.exports = function ($scope, TaskService) {
   $scope.delete = function (index) {
     TaskService.delete(index);
   };
-}
+
+  $scope.taskFilter = function (elem) {
+    return !(elem.completed && $scope.displayFilter);
+  };
+};

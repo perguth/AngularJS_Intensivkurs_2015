@@ -4,17 +4,70 @@
 }
 
 .checked {
-  text-decoration: line-through;
   color: grey;
+
+  // cross out
+  &:after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 50%;
+    height: 1px;
+    left: 30px;
+    width: calc(100% - 75px);
+    background: grey;
+  }
 }
 
-.right {
-  position: absolute;
-  right: 0;
-}
+
 
 .list {
   width: 505px;
   margin-left: 50px;
-  position: relative;
+
+  ul {
+    padding: 0;
+    box-shadow: 0px 0px 19px 1px rgba(0,0,0,0.75);
+    overflow: hidden;
+    border-radius: 10px;
+    border: 1px solid grey;
+    position: relative;
+
+    &:after {
+      content: '';
+      display: block;
+      position: absolute;
+      top:  0;
+      height: 100%;
+      left: 25px;
+      width: 1px;
+      background: rgba(0,0,0,.3);
+    }
+
+    .description {
+      padding-left: 5px;
+    }
+  }
+
+  li {
+    position: relative;
+    list-style: none;
+    padding: 5px;
+
+    &.odd {
+      background: lightblue;
+    }
+
+    .input {
+      margin-left: 5px;
+      width: calc(100% - 60px);
+      border: none;
+    }
+  }
+
+  .right {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+  }
 }
